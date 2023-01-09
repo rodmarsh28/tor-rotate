@@ -1,8 +1,9 @@
 ARG PORT HOST
-FROM radrad0021/puppetrags:latest
+FROM mattes/rotating-proxy:latest
 USER root
 RUN apt-get install -y openssl
 ENV HOST=${HOST}
-ENV PORT=3030
+ENV PORT=4444
+ENV SPORT=5566
 ADD start.sh /_railway/start.sh
 ENTRYPOINT [ "/bin/sh", "/_railway/start.sh" ]
