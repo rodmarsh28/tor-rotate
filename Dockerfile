@@ -5,8 +5,9 @@ ENV \
     TOR_INSTANCES=10 \
     # sets the interval (in seconds) to rebuild tor circuits
     TOR_REBUILD_INTERVAL=1800
-    PORT=$PORT
-    SPORT=$SPORT
+    HOST=${HOST}
+    PORT=${PORT}
+    SPORT=${SPORT}
 
 EXPOSE $SPORT/tcp $PORT/tcp
 
