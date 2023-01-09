@@ -17,7 +17,7 @@ requests to the Privoxy instances with a round-robin strategy.
 
 ### Simple case
 ```shell
-docker run --rm -it -p 3128:3128 zhaowde/rotating-tor-http-proxy
+docker run --rm -it -p 3128:3128 rodmarsh28/tor-rotate
 ```
 At the host, `127.0.0.1:3128` is the HTTP/HTTPS proxy address.
 
