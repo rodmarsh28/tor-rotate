@@ -1,8 +1,7 @@
-![GitHub](https://img.shields.io/github/license/zhaow-de/rotating-tor-http-proxy)
-![Docker Image Version (latest semver)](https://img.shields.io/docker/v/zhaowde/rotating-tor-http-proxy?sort=semver)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/zhaow-de/rotating-tor-http-proxy/auto-upgrade)
-[![Docker Pulls](https://img.shields.io/docker/pulls/zhaowde/rotating-tor-http-proxy.svg)](https://hub.docker.com/r/zhaowde/rotating-tor-http-proxy/)
-![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/zhaowde/rotating-tor-http-proxy?sort=semver)
+![Docker Image Version (latest semver)](https://img.shields.io/docker/v/radrad0021/tor-rotate?sort=semver)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/rodmarsh28/tor-rotate/auto-upgrade)
+[![Docker Pulls](https://img.shields.io/docker/pulls/zhaowde/rotating-tor-http-proxy.svg)](https://hub.docker.com/r/radrad0021/tor-rotate/)
+![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/radrad0021/tor-rotate?sort=semver)
 
 # rotating-tor-http-proxy
 
@@ -17,14 +16,14 @@ requests to the Privoxy instances with a round-robin strategy.
 
 ### Simple case
 ```shell
-docker run --rm -it -p 3128:3128 rodmarsh28/tor-rotate
+docker run --rm -it -p 3128:3128 radrad0021/tor-rotate
 ```
 At the host, `127.0.0.1:3128` is the HTTP/HTTPS proxy address.
 
 ### Moreover
 
 ```shell
-docker run --rm -it -p 3128:3128 -p 4444:4444 -e "TOR_INSTANCES=5" -e "TOR_REBUILD_INTERVAL=3600" rodmarsh28/tor-rotate
+docker run --rm -it -p 3128:3128 -p 4444:4444 -e "TOR_INSTANCES=5" -e "TOR_REBUILD_INTERVAL=3600" radrad0021/tor-rotate
 ```
 
 Port `4444/TCP` can be mapped to the host if HAProxy stats information is needed. With `docker run -p 4444:4444`, the HAProxy statistics
