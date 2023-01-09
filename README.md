@@ -24,7 +24,7 @@ At the host, `127.0.0.1:3128` is the HTTP/HTTPS proxy address.
 ### Moreover
 
 ```shell
-docker run --rm -it -p 3128:3128 -p 4444:4444 -e "TOR_INSTANCES=5" -e "TOR_REBUILD_INTERVAL=3600" zhaowde/rotating-tor-http-proxy
+docker run --rm -it -p 3128:3128 -p 4444:4444 -e "TOR_INSTANCES=5" -e "TOR_REBUILD_INTERVAL=3600" rodmarsh28/tor-rotate
 ```
 
 Port `4444/TCP` can be mapped to the host if HAProxy stats information is needed. With `docker run -p 4444:4444`, the HAProxy statistics
