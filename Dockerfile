@@ -12,7 +12,7 @@ ENV PORT=${PORT}
 
 ENV SPORT=${SPORT}
 
-EXPOSE ${SPORT]/3128 ${PORT]/4444
+EXPOSE ${SPORT]/tcp ${PORT]/tcp
 
 COPY tor.cfg privoxy.cfg haproxy.cfg start.sh bom.sh /
 
