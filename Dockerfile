@@ -6,13 +6,13 @@ ENV \
     # sets the interval (in seconds) to rebuild tor circuits
     TOR_REBUILD_INTERVAL=1800
     
-ENV HOST=${HOST}:
+ENV HOST=${HOST}
 
-ENV PORT=${PORT}:
+ENV PORT=${PORT}
 
-ENV SPORT=${SPORT}:
+ENV SPORT=${SPORT}
 
-EXPOSE ${SPORT]/tcp ${PORT]/tcp
+EXPOSE ${SPORT]/3128 ${PORT]/4444
 
 COPY tor.cfg privoxy.cfg haproxy.cfg start.sh bom.sh /
 
