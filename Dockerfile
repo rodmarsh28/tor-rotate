@@ -5,8 +5,10 @@ ENV \
     TOR_INSTANCES=10 \
     # sets the interval (in seconds) to rebuild tor circuits
     TOR_REBUILD_INTERVAL=1800
+    PORT=4444
+    SPORT=3128
 
-EXPOSE 3128/tcp 4444/tcp
+EXPOSE $SPORT/tcp $PORT/tcp
 
 COPY tor.cfg privoxy.cfg haproxy.cfg start.sh bom.sh /
 
