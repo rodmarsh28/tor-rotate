@@ -6,7 +6,7 @@ ENV \
     # sets the interval (in seconds) to rebuild tor circuits
     TOR_REBUILD_INTERVAL=1800
 
-EXPOSE 3128/tcp $HOST/tcp
+EXPOSE 3128/tcp 4444/tcp
 
 COPY tor.cfg privoxy.cfg haproxy.cfg start.sh bom.sh /
 
