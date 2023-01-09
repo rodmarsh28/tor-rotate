@@ -1,8 +1,25 @@
-ARG PORT HOST
-FROM mattes/rotating-proxy:latest
-USER root
-ENV HOST=${HOST}
-ENV SPORT=8118
-ENV PORT=5566
-ADD start.sh /_railway/start.sh
-ENTRYPOINT [ "/bin/sh", "/_railway/start.sh" ]
+# Alpine Linux
+FROM alpine:edge
+
+# install sys utils
+RUN apk --update add bash curl tor
+
+RUN apk add -U build-base openssl \
+    && wget https://github.com/jech/polipo/archive/master.zip -O polipo.zip \
+    && unzip polipo.zip \
+    && cd polipo-master \
+    && make \
+    && install polipo /usr/local/bin/ \
+    && cd .. \
+    && rm -rf polipo.zip polipo-master \
+    && mkdir -p /usr/share/polipo/www /var/cache/polipo \
+    && apk del build-base openssl \
+    && rm -rf /var/cache/apk/*
+
+EXPOSE 5566-5566
+EXPOSE 2090-2090
+
+ADD start.sh /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/start.sh
+
+CMD /usr/local/bin/start.sh
